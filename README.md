@@ -1,36 +1,55 @@
 # AI Chess Assistant
 
-## Objective
-Provide move suggestions based on board state
+## Overview
+The **AI Chess Assistant** is a web-based application designed to provide chess players with move suggestions, position evaluations, and strategic insights based on the current board state. Built using **Flask** and **Python**, it features an interactive chessboard interface, supports **FEN** notation input, and integrates an **opening book database**.
 
-## Possible Computational Techniques
-1. Position evaluation
-2. Opening book lookup
+The system evaluates positions using piece values, positional factors, king safety, and mobility, while also identifying threatened pieces and legal moves.
 
-## Flask UI Component
-1. Text/board input; best move display
+---
 
-## Types of Dataset
-1. Chess game databases
-2. opening theories
+##  Objective
+Provide intelligent move suggestions and strategic analysis based on the chessboard state, leveraging **position evaluation** and **opening book lookup**.
 
-## Possible Sources for Dataset
-1. Chess.com API
-2. FIDE game repositories
-3. chess engines
+---
 
-## Dataset URLs
-1. https://www.chess.com/news/view/published-data-api
-2. https://database.lichess.org/
+##  Features
+-  **Interactive Chessboard**: Visual board with piece movement and FEN notation input.
+-  **Position Evaluation**: Assesses material, positional advantage, king safety, and mobility.
+-  **Opening Book Lookup**: Identifies known openings (ECO codes, common moves, stats).
+-  **Move Suggestions**: Top 3 move recommendations with evaluation and reasoning.
+-  **Threat Visualization**: Highlights threatened pieces and legal moves.
+-  **Game History**: Tracks moves in algebraic notation.
+-  **Board Tools**: Flip board, reset, and load positions via FEN.
+-  **Responsive UI**: Bootstrap-based UI for a clean experience.
 
-## Setup Instructions
-32. Chess Strategy Recommendation System
-1. Create a Flask application with chess board input (FEN notation or visual board)
-2. Implement position evaluation based on piece values and position
-3. Design opening book lookup for early game suggestions
-4. Build a database of chess openings and tactical patterns
-5. Implement move suggestion generation with explanations
-6. Generate best move display with alternative options
-7. Include strategic assessment of board position
-8. Create visualisation of threatened pieces and opportunities
-9. Test with various chess positions and game stages
+---
+
+##  Computational Techniques
+
+###  Position Evaluation
+- **Material**: Pawn=1, Knight=3, Bishop=3, Rook=5, Queen=9
+- **Positional**: Piece-square tables for key pieces
+- **King Safety**: Count of attackers to king's square
+- **Mobility**: Number of legal moves
+
+###  Opening Book Lookup
+- **SQLite Database** with:
+  - FEN keys
+  - Opening name & ECO code
+  - Common follow-ups and win/draw/loss percentages
+
+---
+
+##  Dataset
+
+### Types:
+- Opening theory
+- Chess games
+
+### Sources:
+- [Chess.com API](https://www.chess.com/news/view/published-data-api)
+- [Lichess Database](https://database.lichess.org)
+- Stockfish-compatible formats
+
+---
+
